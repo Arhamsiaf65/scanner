@@ -224,7 +224,7 @@ export default function Scanner() {
 
                 {/* contact Number (Conditional Rendering) */}
                 {details.contact && (
-                   <a href={`tel:${details.contact}`}>
+                   <a href= {details.contact.includes('@') ? `mailto:${details.contact}` : `tel:${details.contact}` }>
                      <motion.div
                         className="flex items-center justify-center gap-2 text-sm text-gray-300"
                         initial={{ opacity: 0, x: -20 }}
