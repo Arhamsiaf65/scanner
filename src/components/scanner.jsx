@@ -29,7 +29,7 @@ export default function Scanner() {
     const initializeCamera = () => {
         const html5Qrcode = new Html5Qrcode("reader");
         html5QrcodeRef.current = html5Qrcode; // Store the instance in the ref
-        const config = { fps: 20, qrbox: { width: 150, height: 150 } }; // Smaller box for mobile
+        const config = { fps: 20, qrbox: { width: 150, height: 150 } }; // Smaller box for contact
 
         Html5Qrcode.getCameras()
             .then(devices => {
@@ -222,9 +222,9 @@ export default function Scanner() {
                     </motion.h3>
                 )}
 
-                {/* Mobile Number (Conditional Rendering) */}
-                {details.mobile && (
-                   <a href={`tel:${details.mobile}`}>
+                {/* contact Number (Conditional Rendering) */}
+                {details.contact && (
+                   <a href={`tel:${details.contact}`}>
                      <motion.div
                         className="flex items-center justify-center gap-2 text-sm text-gray-300"
                         initial={{ opacity: 0, x: -20 }}
@@ -234,7 +234,7 @@ export default function Scanner() {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
-                        <span>{details.mobile}</span>
+                        <span>{details.contact}</span>
                     </motion.div>
                    </a>
                 )}
